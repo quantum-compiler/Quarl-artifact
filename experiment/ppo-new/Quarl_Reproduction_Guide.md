@@ -126,17 +126,14 @@ wandb login
 When prompted, enter the API key you obtained from the wandb account.
 
 
-### Downloading the Checkpoints
+### Preparing
 
-Run the following commands to download checkpoints and create directory for log:
+Run the following commands to enter the experiments directory and create directory for log:
 
 ```shell
 # at the root dir of quarl-artifact repo
 git checkout quarl-repro
 cd experiment/ppo-new # this is the folder for Quarl experiments
-
-wget https://share.la.co1in.me/ckpts.zip
-unzip ckpts.zip && rm ckpts.zip
 mkdir ftlog
 ```
 
