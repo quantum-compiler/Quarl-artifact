@@ -230,4 +230,25 @@ Run `python tket_ibm.py`.
 Enter the root of the repo, and then enter the directory `experiment/comparison/`.
 Run `python quartz_ibm.py`.
 
-### Figure 8
+### Ablation Study
+
+#### Figure 8 Local Decoding vs. Global Decoding
+
+To run the local decoding (default in Quarl) run the following command:
+
+```shell
+git checkout quarl-repro
+BS=4800 CIRC=mod_red_21 GPU=0 bash scripts/ibm_search_6l_wos.sh
+```
+
+Modify the argument `CIRC` to run on other circuits.
+
+To run the global decoding experiments, run the following command:
+
+```shell
+git checkout rl-ablation-local-decoding
+BS=4800 CIRC=mod_red_21 GPU=0 bash scripts/ibm_search_6l_loc.sh
+```
+
+### Figure 9
+
