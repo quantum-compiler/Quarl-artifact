@@ -151,7 +151,7 @@ All the Quarl experiments are conducted by running the `ppo.py` file. The local 
 
 ### Table 2 and 3
 
-#### Quarl's results
+#### Quarl's Results
 
 Run the following commands to reproduce the results of Quarl without the rotation merging preprocessing pass.
 The provided command run the experiment on 2 circuits, namely mod_red_21 and adder_8.
@@ -178,7 +178,16 @@ The result of a run is presented as a chart on the wandb website of the correspo
 
 Results in Table 3 are obtained from the same set of experiments as Table 2.
 
+#### Nam
+
+Nam's results are obtained from the [paper](https://www.nature.com/articles/s41534-018-0072-4).
+
 ### Table 4
+
+#### Quarl's Results
+
+The provided command run the experiment on 2 circuits, namely barenco_tof_10 and adder_8.
+Modify the value of the argument `CIRC` to run on other circuits.
 
 ```shell
 CKPT=ckpts/ibm_iter_921_6l.pt BS=4800 CIRC=barenco_tof_10 GPU=0 bash scripts/ibm_search_6l.sh
