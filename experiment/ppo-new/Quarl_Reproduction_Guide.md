@@ -100,9 +100,28 @@ git pull && git checkout quarl-repro
     mamba activate quartz
     mamba env update --file env_ppo.yml
     ```
-    Check if the GPU-enabled PyTorch is installed. If not (only the CPU version is installed), uninstall `torch` via `pip` and install the GPU-enabled PyTorch following the instruction on its official website.
 
-4. Log in to the wandb account: `wandb login`.
+    After the installation completes, check if the GPU-enabled PyTorch is installed. If not (only the CPU version is installed), uninstall `torch` via `pip` and install the GPU-enabled PyTorch following the instruction on its official website.
+
+4. Logging into the Weights & Biases (wandb) account
+
+
+To maintain the anonymity of reviewers, a dedicated wandb account has been created and will be provided in the communication channel during the kick-the-tires phase.
+
+Once logged into the wandb account, you need to obtain an API key. This key is used for authentication when logging into wandb on the cluster node. To get your API key, follow these steps:
+
+- Log into the wandb website with the provided account credentials.
+- Navigate to your account settings or API section to find your API key.
+
+After obtaining your API key, you can log into wandb on the cluster node using the following command:
+
+
+```bash
+wandb login
+```
+
+When prompted, enter the API key you obtained from the wandb account.
+
 
 5. Download the checkpoints for AI models and create some folders:
 
