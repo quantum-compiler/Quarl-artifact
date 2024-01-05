@@ -35,7 +35,31 @@
 
 ## Get Started
 
-### Launching a Node
+### Logging in and Lauching a Node
+
+You can login to the Catalyst Cluster by ssh with the following command:
+
+```bash
+ssh aaa@catalyst-cluster.cs.cmu.edu
+```
+
+Then you are logged into the login node. To run the evaluation, please launch a interactive node with slurm with the following command:
+
+```bash
+salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=128 --mem=512 --gres=gpu:4 --time=01:00:00
+```
+
+where time can be modified. This command finds and allocs a node with the specified resources, and it prompts the allocated node in the shell, for example,
+
+```
+salloc: Nodes catalyst-0-11 are ready for job
+```
+
+Then you can log in to the allocated node with `ssh`:
+
+```bash
+ssh catalyst-0-11
+```
 
 ### Docker (Recommended for Evaluation)
 
