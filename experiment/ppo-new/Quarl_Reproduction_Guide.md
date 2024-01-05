@@ -182,6 +182,27 @@ Results in Table 3 are obtained from the same set of experiments as Table 2.
 
 Nam's results are obtained from the [paper](https://www.nature.com/articles/s41534-018-0072-4).
 
+#### VOQC
+
+Enter the root of the repo, and then enter the directory `experiment/comparison/`.
+Run `python VOQC_nam.py`.
+
+#### Qiskit
+
+Enter the root of the repo, and then enter the directory `experiment/comparison/`.
+Run `python Qiskit_nam.py`.
+
+#### t|ket $\rangle$
+
+Enter the root of the repo, and then enter the directory `experiment/comparison/`.
+Run `python tket_nam.py`.
+
+#### Quartz
+
+Enter the root of the repo, and then enter the directory `experiment/comparison/`.
+Run `python quartz_nam_worm.py` to run Quartz without the rotation merging preprocessing pass.
+Run `python quartz_nam_rm.py` to run Quartz with the rotation merging preprocessing pass.
+
 ### Table 4
 
 #### Quarl's Results
@@ -194,3 +215,19 @@ CKPT=ckpts/ibm_iter_921_6l.pt BS=4800 CIRC=barenco_tof_10 GPU=0 bash scripts/ibm
 CKPT=ckpts/ibm_iter_921_6l.pt BS=2400 CIRC=adder_8 GPU=1 bash scripts/ibm_search_6l.sh
 ```
 
+#### Qiskit
+
+Enter the root of the repo, and then enter the directory `experiment/comparison/`.
+Run `python Qiskit_ibm.py`.
+
+#### t|ket $\rangle$
+
+Enter the root of the repo, and then enter the directory `experiment/comparison/`.
+Run `python tket_ibm.py`.
+
+#### Quartz
+
+Enter the root of the repo, and then enter the directory `experiment/comparison/`.
+Run `python quartz_ibm.py`.
+
+### Figure 8

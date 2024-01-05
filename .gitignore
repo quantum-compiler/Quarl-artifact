@@ -67,3 +67,9 @@ build/*
 
 # others
 .DS_Store
+experiment/comparison/*.txt
+experiment/comparison/*.qasm
+experiment/comparison/*/*.qasm
+experiment/comparison/*.pdf
+experiment/comparison/*/*.pdf
+experiment/comparison/*.csv
