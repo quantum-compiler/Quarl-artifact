@@ -232,13 +232,13 @@ Run `python quartz_ibm.py`.
 
 ### Ablation Study
 
-#### Figure 8 Local Decoding vs. Global Decoding
+#### Figure 8. Local Decoding vs. Global Decoding
 
-To run the local decoding (default in Quarl) run the following command:
+To run the local decoding (default in Quarl), run the following command:
 
 ```shell
 git checkout quarl-repro
-BS=4800 CIRC=mod_red_21 GPU=0 bash scripts/ibm_search_6l_wos.sh
+BS=4800 CIRC=mod_red_21 GPU=0 bash scripts/ibm_search_6l_wops.sh
 ```
 
 Modify the argument `CIRC` to run on other circuits.
@@ -250,5 +250,64 @@ git checkout rl-ablation-local-decoding
 BS=4800 CIRC=mod_red_21 GPU=0 bash scripts/ibm_search_6l_loc.sh
 ```
 
-### Figure 9
+Modify the argument `CIRC` to run on other circuits.
 
+#### Figure 9. HAE vs. GAE
+
+To run HAE (default in Quarl), run the following command:
+
+```shell
+git checkout quarl-repro
+BS=4800 CIRC=mod_red_21 GPU=0 bash scripts/ibm_search_6l_wops.sh
+```
+
+Modify the argument `CIRC` to run on other circuits.
+
+To run the GAE experiments, run the following command:
+
+```shell
+git checkout rl-ablation-advantage-estimation
+BS=4800 CIRC=mod_red_21 GPU=0 bash scripts/ibm_search_6l_gae.sh
+```
+
+Modify the argument `CIRC` to run on other circuits.
+
+#### Figure 10. The Influence of Pre-training
+
+To run Quarl with pre-training (default in Quarl), run the following command:
+
+```shell
+git checkout quarl-repro
+CKPT=ckpts/ibm_iter_921_6l.pt BS=4800 CIRC=portfoliovqe_8 GPU=0 bash scripts/ibm_search_6l.sh
+```
+
+Modify the argument `CIRC` to run on other circuits.
+
+To run Quarl without pretraining, run the following command:
+
+```shell
+git checkout quarl-repro
+BS=4800 CIRC=portfoliovqe_8 GPU=0 bash scripts/ibm_search_wops.sh
+```
+
+Modify the argument `CIRC` to run on other circuits.
+
+#### Figure 11. The Influence of Policy-guided Search
+
+To run Quarl with the policy-guided search (default in Quarl), run the following command:
+
+```shell
+git checkout quarl-repro
+CKPT=ckpts/ibm_iter_921_6l.pt BS=4800 CIRC=portfoliovqe_8 GPU=0 bash scripts/ibm_search_6l.sh
+```
+
+Modify the argument `CIRC` to run on other circuits.
+
+To run the GAE experiments, run the following command:
+
+```shell
+git checkout quarl-repro
+CKPT=ckpts/ibm_iter_921_6l.pt BS=4800 CIRC=barenco_tof_10 GPU=0 bash scripts/ibm_search_wos.sh
+```
+
+Modify the argument `CIRC` to run on other circuits.
