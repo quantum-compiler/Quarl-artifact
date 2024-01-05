@@ -1,6 +1,41 @@
 # Quarl Reproduction Guide
 
-## Setup
+## Introduction to Quarl
+
+## Hardware Dependencies
+
+### Training Requirements
+
+- The reinforcement learning agent in Quarl necessitates the use of GPUs for training.
+- For the results presented in Table 2, 3, 4 and Figure 12 of the original paper, machines equipped with A100 GPUs were employed.
+- Machines with V100 GPUs were used for the ablation studies.
+
+### Access to Hardware
+
+- Due to the current GPU shortages, the specific hardware (A100 and V100 GPUs) used in our study is not available for artifact evaluation.
+
+- We provide access to the CMU Catalyst Cluster as an alternative. However, it is important to note that this cluster is equipped with Nvidia A5000 GPUs, which differ in performance characteristics from the A100 and V100 GPUs used in our study.
+
+- Cluster Specifications:
+    - Each node in the cluster includes:
+        - 128 CPU cores.
+        - 512 GB of memory.
+        - 4 A5000 GPUs with 24 GB of GPU memory each.
+    - Access details:
+        - Username: ?????
+        - Password: ?????
+    - Launching an Interactive Node:
+        - For artifact evaluation, reviewers will need to launch an interactive node on the CMU Catalyst Cluster, which is managed by Slurm. Detailed instructions for launching an interactive session with Slurm are provided in the Get Started section.
+
+### Impact on Results Reproduction
+
+- Due to the change in hardware, especially the use of A5000 GPUs instead of A100s and V100s, it may not be possible to fully reproduce the results presented in the paper, particularly those that are sensitive to the specific GPU performance or have time constraints.
+
+- We recommend that reviewers take this hardware discrepancy into account when evaluating the artifact.
+
+## Get Started
+
+### Launching a Node
 
 ### Docker (Recommended for Evaluation)
 
