@@ -87,6 +87,8 @@ git pull && git checkout quarl-repro
 
 ### Manual Setup (Recommended for Development)
 
+You can ignore this section if you use docker to set up the environment.
+
 1. Setup the Python environment with [mamba](https://github.com/quantum-compiler/Quarl-artifact/blob/master/INSTALL.md#install-from-source). 
 
 2. Install Quartz following [this section](https://github.com/quantum-compiler/Quarl-artifact/blob/master/INSTALL.md#install-from-source), in which a mamba (conda) environment `quartz` is created.
@@ -103,8 +105,9 @@ git pull && git checkout quarl-repro
 
     After the installation completes, check if the GPU-enabled PyTorch is installed. If not (only the CPU version is installed), uninstall `torch` via `pip` and install the GPU-enabled PyTorch following the instruction on its official website.
 
-4. Logging into the Weights & Biases (wandb) account
+### Weights & Biases Setup
 
+#### Logging into the Weights & Biases (wandb) account
 
 To maintain the anonymity of reviewers, a dedicated wandb account has been created and will be provided in the communication channel during the kick-the-tires phase.
 
@@ -123,40 +126,59 @@ wandb login
 When prompted, enter the API key you obtained from the wandb account.
 
 
-5. Download the checkpoints for AI models and create some folders:
+### Downloading the Checkpoints
 
-    ```shell
-    # at the root dir of quarl-artifact repo
-    git checkout quarl-repro
-    cd experiment/ppo-new # this is the folder for Quarl experiments
-    
-    wget https://share.la.co1in.me/ckpts.zip
-    unzip ckpts.zip && rm ckpts.zip
-    mkdir ftlog
-    ```
+Run the following commands to download checkpoints and create directory for log:
 
-## Reproduce
+```shell
+# at the root dir of quarl-artifact repo
+git checkout quarl-repro
+cd experiment/ppo-new # this is the folder for Quarl experiments
 
-- Program entry: `ppo.py`
-- Output:
-    - local: `outputs`
-    - online: wandb project webpages, e.g. https://wandb.ai/userXYZ/IBM-Finetune-6l-seed
+wget https://share.la.co1in.me/ckpts.zip
+unzip ckpts.zip && rm ckpts.zip
+mkdir ftlog
+```
 
-Examples for Table 2, Nam Gate set:
+## Instructions for Evaluation
+
+In this section, we provide step-by-step instructions to evaluate the functionality of the artifact. For every experimental result in the Quarl paper, we provide instructions to reproduce it. We also provide scaled-down examples to help check the reusability of the scripts.
+
+All the Quarl experiments are conducted by running the `ppo.py` file. The local outputs are found in directory `outputs/`, and the real-time value of the metrics can be viewed from wandb project webpages (e.g. https://wandb.ai/userXYZ/IBM-Finetune-6l-seed).
+
+### Pre-training
+
+
+### Table 2 and 3
+
+#### Quarl's results
+
+Run the following commands to reproduce the results of Quarl without the rotation merging preprocessing pass.
+The provided command run the experiment on 2 circuits, namely mod_red_21 and adder_8.
+Modify the value of the argument `CIRC` to run on other circuits.
 
 ```shell
 # w/o rotation merging pre-processing
 CKPT=ckpts/nam2_iter_384_6l.pt BS=4800 CIRC=mod_red_21 GPU=0 bash scripts/nam2_search.sh
 CKPT=ckpts/nam2_iter_384_6l.pt BS=3200 CIRC=adder_8 GPU=1 bash scripts/nam2_search.sh
+```
 
+Run the following command to reproduce the results of Quarl with the rotation merging preprocessing pass.
+The provided command run the experiment on 2 circuits, namely mod_red_21 and adder_8.
+Modify the value of the argument `CIRC` to run on other circuits.
+
+
+```shell
 # w/ rotation merging pre-processing
 CKPT=ckpts/nam2_rm_iter_404_6l.pt BS=4800 CIRC=mod_red_21 GPU=2 bash scripts/nam2_rm_search.sh
 CKPT=ckpts/nam2_rm_iter_404_6l.pt BS=3200 CIRC=adder_8 GPU=3 bash scripts/nam2_rm_search.sh
 ```
 
-(Metrics in Table 3 are obtained from experiments for Table 2.)
+The result of a run is presented as a chart on the wandb website of the corresponding run whose name has the postfix `min_gate_count_iter` (e.g. `mod_red_21_min_gate_count_iter`).
 
-Examples for Table 4, IBM Gate set:
+Results in Table 3 are obtained from the same set of experiments as Table 2.
+
+### Table 4
 
 ```shell
 CKPT=ckpts/ibm_iter_921_6l.pt BS=4800 CIRC=barenco_tof_10 GPU=0 bash scripts/ibm_search_6l.sh
