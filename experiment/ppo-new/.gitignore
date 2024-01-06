@@ -3,4 +3,3 @@ outputs
 **/.mypy_cache
 **/log*
 **/*.log
-**/*.pt
