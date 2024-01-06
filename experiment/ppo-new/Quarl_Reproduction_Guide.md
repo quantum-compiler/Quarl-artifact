@@ -1,8 +1,15 @@
 # Quarl Reproduction Guide
 
-## Introduction to Quarl
+## 1. Introduction 
 
-## Hardware Dependencies
+Welcome to the Quarl Artifact guide. This document outlines the steps necessary to replicate the findings of the Quarl research paper.
+- Hardware Dependencies and Access: The second section details the required hardware dependencies and guides you on accessing the Catalyst cluster. Access credentials will be distributed through our communication channel during the "kick-the-tires" phase.
+
+- Environment Setup: The third section focuses on setting up the necessary environment for evaluation. It includes instructions for pulling a pre-configured Docker image and also provides guidance for those who prefer to manually build the environment.
+
+- Reproducing Experimental Results: The fourth section offers comprehensive instructions for replicating the experiments detailed in the Quarl paper. Due to the time-intensive nature of these experiments, we include one or two runs per table or figure as examples, demonstrating the reproducibility of our results.
+
+## 2. Hardware Dependencies
 
 ### Training Requirements
 
@@ -33,7 +40,7 @@
 
 - We recommend that reviewers take this hardware discrepancy into account when evaluating the artifact.
 
-## Get Started
+## 3. Get Started
 
 ### Logging in and Launching a Node on the Catalyst Cluster
 
@@ -140,7 +147,7 @@ unzip ckpts.zip && rm ckpts.zip
 mkdir ftlog
 ```
 
-## Instructions for Evaluation
+## 4. Instructions for Evaluation
 
 In this section, we provide step-by-step instructions to evaluate the functionality of the artifact. For every experimental result in the Quarl paper, we provide instructions to reproduce it. We also provide scaled-down examples to help check the reusability of the scripts.
 
